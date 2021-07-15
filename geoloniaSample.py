@@ -49,10 +49,10 @@ if __name__ == "__main__":
 	pprint.pprint(map_k(trim_pref)(address_dict), depth=1)
 
 	print("\n" + "----------「～町」のみ抽出----------")
-	pprint.pprint(map_v(get_town)(address_dict), depth=2)
+	pprint.pprint(map_v(get_town)(address_dict), depth=2, width=40, compact=True)
 
 	print("\n" + "----------「都道府県」の文字列を削除、かつ「～町」のみ抽出----------")
-	pprint.pprint(map_k_v(trim_pref)(get_town)(address_dict), depth=2)
+	pprint.pprint(map_k_v(trim_pref)(get_town)(address_dict), depth=2, width=40, compact=True)
 
 	print("\n" + "----------全部乗せ----------")
-	pprint.pprint(map_k_v(trim_pref)(get_town)(address_dict), depth=2)
+	pprint.pprint(filter_map_k_v(is_kanto)(has_more_60)(trim_pref)(get_town)(address_dict), depth=2, width=40, compact=True)
